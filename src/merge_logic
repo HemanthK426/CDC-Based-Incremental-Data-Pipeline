@@ -1,0 +1,9 @@
+import pandas as pd
+
+def merge_data(initial_df, updates_df):
+    updated_df = initial_df.set_index("patient_id")
+
+    for _, row in updates_df.iterrows():
+        updated_df.loc[row["patient_id"]] = row
+
+    return updated_df.reset_index()
