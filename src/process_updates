@@ -1,0 +1,11 @@
+import pandas as pd
+from merge_logic import merge_data
+
+initial_df = pd.read_csv("data/initial/patient_data.csv")
+updates_df = pd.read_csv("data/incremental/updates.csv")
+
+final_df = merge_data(initial_df, updates_df)
+
+final_df.to_csv("output/final_data.csv", index=False)
+
+print("CDC processing complete. Final dataset saved.")
