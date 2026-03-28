@@ -1,1 +1,24 @@
 
+from airflow import DAG
+from airflow.operators.python import PythonOperator
+from datetime import datetime
+import subprocess
+
+# Task function
+def run_cdc_pipeline():
+    subprocess.run(["python", "src/process_updates.py"])
+
+# Define DAG
+with DAG(
+    dag_id="cdc_healthcare_pipeline",
+    start_date=datetime(2024, 1, 1),
+    schedule_interval="@daily",
+    catchup=False
+) as dag:
+
+    cdc_task = PythonOperator(
+        task_id="run_cdc_updates",
+        python_callable=run_cdc_pipeline
+    )
+
+    cdc_task
