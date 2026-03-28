@@ -1,8 +1,0 @@
-import time
-import pandas as pd
-
-df = pd.read_csv("data/incremental/updates.csv")
-
-for _, row in df.iterrows():
-    print(f"Sending update: {row.to_dict()}")
-    time.sleep(1)
