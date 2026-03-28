@@ -1,2 +1,0 @@
-def merge_data(old_df, new_df):
-    return new_df.combine_first(old_df)
