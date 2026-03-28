@@ -1,0 +1,4 @@
+patient_id,name,age,condition,last_updated
+101,John,45,Diabetes,2024-01-01
+102,Sarah,60,Cardiac,2024-01-01
+103,Mike,30,Flu,2024-01-01
